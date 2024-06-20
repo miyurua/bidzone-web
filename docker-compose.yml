@@ -3,7 +3,7 @@ services:
   bidzone-db:
     image: postgres
     restart: always
-    container_name: bid-buddy-db
+    container_name: bidzone-db
     ports:
       - 5432:5432
     environment:
