@@ -1,11 +1,19 @@
-import Image from "next/image";
+import { database } from "@/db/database";
+import { bids } from "@/db/schema";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>
-        <div>New</div>
-      </div>
+    <main className="">
+      <form
+        action={async (formData: FormData) => {
+          "use server";
+
+          await database.insert(bids).values({});
+        }}
+      >
+        <input type="text" placeholder="bid" />
+        <button className="border border-black rounded-md">Place Bid</button>
+      </form>
     </main>
   );
 }
